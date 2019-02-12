@@ -8,3 +8,7 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+        - Codeception\Extension\RunProcess:
+            java -jar ./selenium.jar
+            ./chromedriver
+            sleep 5

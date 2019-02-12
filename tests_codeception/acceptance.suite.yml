@@ -7,7 +7,11 @@
 actor: AcceptanceTester
 modules:
     enabled:
+        - \Helper\Acceptance
         - WebDriver:
             url: http://localhost:8000
             browser: chrome
-        - \Helper\Acceptance
+        - Laravel5:
+            part: ORM
+            cleanup: false
+            environment_file: .env
