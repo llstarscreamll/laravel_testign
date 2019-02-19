@@ -5,10 +5,3 @@ paths:
     support: tests_codeception/_support
     envs: tests_codeception/_envs
 actor_suffix: Tester
-extensions:
-    enabled:
-        - Codeception\Extension\RunFailed
-        - Codeception\Extension\RunProcess:
-            0: java -jar ./selenium.jar
-            1: ./chromedriver
-            sleep: 5
