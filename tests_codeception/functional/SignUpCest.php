@@ -45,5 +45,26 @@ class SignUpCest
         $I->see('Dashboard', '.card-header');
         $I->see('You are logged in!', '.card-body');
         $I->see('Tony Stark', '#navbarSupportedContent');
+
+        $I->seeRecord('users', [
+            'name'  => 'Tony Stark',
+            'email' => 'tony@stark.com',
+        ]);
+    }
+
+    public function shouldShowErrorIfEmailInNotValid(FunctionalTester $I)
+    {
+        $I->amOnPage('/register');
+
+        $I->submitForm('form', [
+            'name'                  => 'Tony Stark',
+            'email'                 => 'fake-email',
+            'password'              => 'tony.123',
+            'password_confirmation' => 'tony.123',
+        ]);
+
+        $I->seeCurrentUrlEquals('/register');
+        $I->seeFormHasErrors();
+        $I->see('The email must be a valid email address.', 'span.invalid-feedback');
     }
 }
