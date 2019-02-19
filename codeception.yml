@@ -9,6 +9,6 @@ extensions:
     enabled:
         - Codeception\Extension\RunFailed
         - Codeception\Extension\RunProcess:
-            java -jar ./selenium.jar
-            ./chromedriver
-            sleep 5
+            0: java -jar ./selenium.jar
+            1: ./chromedriver
+            sleep: 5
